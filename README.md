@@ -49,6 +49,7 @@ python manage.py runserver
 
 ## 项目结构
 
+```
 todo/
 ├── frontend/ # React 前端项目
 │ ├── public/ # 静态文件
@@ -59,6 +60,7 @@ todo/
 │
 └── backend/ # Django 后端项目
 └── todo/ # Django 应用
+```
 
 ## 使用说明
 
