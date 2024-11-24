@@ -1,0 +1,61 @@
+/* Layout */
+.layout-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 0 24px;
+}
+
+.container {
+  max-width: '80vh';
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Card */
+.todo-card {
+  margin: 0 auto;
+  max-width: 70%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* List */
+.tab-list {
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.arco-list-item {
+  padding: 16px !important;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.arco-list-item:hover {
+  background-color: rgb(247, 248, 250);
+}
+
+.arco-list-item-action > li {
+  padding: 0 4px;
+}
+
+.arco-list-item-meta-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px !important;
+}
+
+.arco-list-item-meta-description {
+  color: rgb(134, 144, 156);
+  font-size: 14px;
+  padding-left: 8px;
+  border-left: 2px solid #e5e6eb;
+  margin: 4px 0;
+}
+
+/* Todo Item */
+.completed-todo {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
