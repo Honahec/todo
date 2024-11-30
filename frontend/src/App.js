@@ -8,6 +8,9 @@ import CustomModal from "./components/Modal";
 import axios from "axios";
 import './App.css';
 
+axios.defaults.baseURL = 'https://api.honahec.cc/todo';
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+
 const { Content, Footer } = Layout;
 const { Title } = Typography;
 
@@ -32,13 +35,14 @@ class App extends Component {
 
   refreshList = () => {
     axios
-      .get("https://api.honahec.cc/todo/tasks")
+      .get("/tasks/")
       .then((res) => {
         const todoList = Array.isArray(res.data) ? res.data : [];
         this.setState({ todoList });
       })
       .catch((err) => {
-        console.log(err);
+        console.error("Error fetching tasks:", err);
+        Message.error('Failed to fetch tasks');
         this.setState({ todoList: [] });
       });
   };
@@ -51,17 +55,17 @@ class App extends Component {
     this.toggle();
     if (item.id) {
       axios
-        .put(`https://api.honahec.cc/todo/tasks/${item.id}/`, item)
+        .put(`/tasks/${item.id}/`, item)
         .then((res) => this.refreshList());
       return;
     }
     axios
-      .post("https://api.honahec.cc/todo/tasks/", item)
+      .post("/tasks/", item)
       .then((res) => this.refreshList());
   };
   handleDelete = (item) => {
     axios
-      .delete(`https://api.honahec.cc/todo/tasks/${item.id}/`)
+      .delete(`/tasks/${item.id}/`)
       .then((res) => this.refreshList());
   };
 
