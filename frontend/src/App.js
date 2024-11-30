@@ -32,7 +32,7 @@ class App extends Component {
 
   refreshList = () => {
     axios
-      .get("https://api.honahec.cc/todo/")
+      .get("https://api.honahec.cc/todo/tasks")
       .then((res) => {
         const todoList = Array.isArray(res.data) ? res.data : [];
         this.setState({ todoList });
@@ -51,17 +51,17 @@ class App extends Component {
     this.toggle();
     if (item.id) {
       axios
-        .put(`https://api.honahec.cc/todo/${item.id}/`, item)
+        .put(`https://api.honahec.cc/todo/tasks/${item.id}/`, item)
         .then((res) => this.refreshList());
       return;
     }
     axios
-      .post("https://api.honahec.cc/todo/", item)
+      .post("https://api.honahec.cc/todo/tasks/", item)
       .then((res) => this.refreshList());
   };
   handleDelete = (item) => {
     axios
-      .delete(`https://api.honahec.cc/todo/${item.id}/`)
+      .delete(`https://api.honahec.cc/todo/tasks/${item.id}/`)
       .then((res) => this.refreshList());
   };
 
