@@ -13,11 +13,13 @@
 ## 技术栈
 
 ### 前端
+
 - React 18
 - Arco Design
 - Axios
 
 ### 后端
+
 - Django 5.1
 - Django REST framework
 
@@ -32,7 +34,7 @@ npm start
 npm build
 ```
 
-应用将在 `http://localhost:3000` 启动。
+`start` 应用将在 `http://localhost:3000` 启动。
 
 ### 后端设置
 
@@ -42,10 +44,10 @@ python -m venv venv
 source venv/bin/active
 pip install -r requirement.txt
 python manage.py migrate
-python manage.py runserver
+python manage.py runserver 8002
 ```
 
-应用将在 `http://localhost:8000` 启动。
+应用将在 `http://localhost:8002` 启动。
 
 ## 项目结构
 
