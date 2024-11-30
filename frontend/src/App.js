@@ -42,7 +42,7 @@ class App extends Component {
       })
       .catch((err) => {
         console.error("Error fetching tasks:", err);
-        Message.error('Failed to fetch tasks');
+        Message.error('获取TODO列表失败');
         this.setState({ todoList: [] });
       });
   };

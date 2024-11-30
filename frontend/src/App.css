@@ -2,11 +2,11 @@
 .layout-container {
   min-height: 100vh;
   background-color: #f5f5f5;
-  padding: 0 24px;
+  padding: 0 12px;
 }
 
 .container {
-  max-width: '80vh';
+  max-width: 100%;
   margin: 0 auto;
   padding: 0;
 }
@@ -58,4 +58,15 @@
 .completed-todo {
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+/* 添加媒体查询来处理移动端 */
+@media screen and (max-width: 768px) {
+  .todo-card {
+    max-width: 100%;
+  }
+  
+  .layout-container {
+    padding: 0 8px;
+  }
 }
