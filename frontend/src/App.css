@@ -69,4 +69,24 @@
   .layout-container {
     padding: 0 8px;
   }
+
+  .arco-list-item-action {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .arco-list-item-action > li {
+    margin: 0 !important;
+  }
+
+  /* 让按钮在手机端占满宽度 */
+  .arco-list-item-action .arco-btn {
+    width: 100%;
+  }
+}
+
+/* List Item Actions */
+.arco-list-item-action {
+  display: flex;
+  gap: 8px;
 }
