@@ -1,15 +1,21 @@
-import '@arco-design/web-react/dist/css/arco.css';
+import "@arco-design/web-react/dist/css/arco.css";
 import React, { Component } from "react";
-import { Layout, Button, Card, Message, Typography } from '@arco-design/web-react';
-import { IconPlus } from '@arco-design/web-react/icon';
-import TodoList from './components/TodoList';
-import TodoTabs from './components/TodoTabs';
+import {
+  Layout,
+  Button,
+  Card,
+  Message,
+  Typography,
+} from "@arco-design/web-react";
+import { IconPlus } from "@arco-design/web-react/icon";
+import TodoList from "./components/TodoList";
+import TodoTabs from "./components/TodoTabs";
 import CustomModal from "./components/Modal";
 import axios from "axios";
-import './App.css';
+import "./App.css";
 
-axios.defaults.baseURL = 'https://api.honahec.cc/todo';
-axios.defaults.headers.common['Content-Type'] = 'application/json';
+axios.defaults.baseURL = "https://api.honahec.cc/todo";
+axios.defaults.headers.common["Content-Type"] = "application/json";
 
 const { Content, Footer } = Layout;
 const { Title } = Typography;
@@ -42,7 +48,7 @@ class App extends Component {
       })
       .catch((err) => {
         console.error("Error fetching tasks:", err);
-        Message.error('获取TODO列表失败');
+        Message.error("获取TODO列表失败");
         this.setState({ todoList: [] });
       });
   };
@@ -54,26 +60,20 @@ class App extends Component {
   handleSubmit = (item) => {
     this.toggle();
     if (item.id) {
-      axios
-        .put(`/tasks/${item.id}/`, item)
-        .then((res) => this.refreshList());
+      axios.put(`/tasks/${item.id}/`, item).then((res) => this.refreshList());
       return;
     }
-    axios
-      .post("/tasks/", item)
-      .then((res) => this.refreshList());
+    axios.post("/tasks/", item).then((res) => this.refreshList());
   };
   handleDelete = (item) => {
-    axios
-      .delete(`/tasks/${item.id}/`)
-      .then((res) => this.refreshList());
+    axios.delete(`/tasks/${item.id}/`).then((res) => this.refreshList());
   };
 
   createItem = () => {
-    const item = { 
+    const item = {
       title: "",
       description: "",
-      completed: false
+      completed: false,
     };
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
@@ -91,14 +91,17 @@ class App extends Component {
 
   render() {
     const filteredItems = this.state.todoList.filter(
-      item => item.completed === this.state.viewCompleted
+      (item) => item.completed === this.state.viewCompleted
     );
 
     return (
       <Layout className="layout-container">
-        <Content style={{ background: '#f5f5f5', padding: '24px' }}>
+        <Content style={{ background: "#f5f5f5", padding: "24px" }}>
           <div className="container">
-            <Title heading={2} style={{ textAlign: 'center', margin: '24px 0' }}>
+            <Title
+              heading={2}
+              style={{ textAlign: "center", margin: "24px 0" }}
+            >
               TODO
             </Title>
             <Card className="todo-card">
@@ -123,8 +126,11 @@ class App extends Component {
             </Card>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center', padding: '24px' }}>
-          Copyright 2024 &copy; All rights reserved
+        <Footer style={{ textAlign: "center", padding: "24px" }}>
+          <a href="https://beian.miit.gov.cn/" target="_blank">
+            鲁ICP备2024119517号-1
+          </a><br/>
+          Copyright 2024 &copy; Honahec
         </Footer>
         {this.state.modal && (
           <CustomModal
