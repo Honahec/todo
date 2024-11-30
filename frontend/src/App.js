@@ -33,8 +33,14 @@ class App extends Component {
   refreshList = () => {
     axios
       .get("https://api.honahec.cc/todo/")
-      .then((res) => this.setState({ todoList: res.data }))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        const todoList = Array.isArray(res.data) ? res.data : [];
+        this.setState({ todoList });
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({ todoList: [] });
+      });
   };
 
   toggle = () => {
