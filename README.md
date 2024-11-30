@@ -30,8 +30,8 @@
 ```bash
 cd frontend
 npm install
-npm start
-npm build
+npm run start
+npm run build
 ```
 
 `start` 应用将在 `http://localhost:3000` 启动。
